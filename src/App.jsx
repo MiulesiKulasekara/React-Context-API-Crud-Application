@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import AddUser from "./components/AddUser";
 import Edit from "./components/Edit";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { GlobalState } from "./context/GlobalState";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div style={{ maxWidth: "30rem", margin: "4rem auto" }}>
-      <RouterProvider router={router} />
+      <GlobalState>
+        <RouterProvider router={router} />
+      </GlobalState>
     </div>
   );
 }
